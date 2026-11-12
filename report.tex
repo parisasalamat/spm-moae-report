@@ -1,0 +1,180 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% ---------- Hyperref setup ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black,
+    pdftitle={SPM12 Statistical Report: MoAEpilot},
+    pdfauthor={Your Name}
+}
+
+% ---------- Header / Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SPM12 Statistical Report}
+\fancyhead[R]{\small MoAEpilot -- \texttt{spmT\_0001.nii}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Title ----------
+\title{\textbf{SPM12 Statistical Report}\\[0.3em]
+\large MoAEpilot Dataset --- Auditory Stimulation Paradigm\\[0.5em]
+\large \texttt{spmT\_0001.nii}}
+\author{Parisa Salamat \\ \small \href{https://github.com/parisasalamat}{github.com/parisasalamat}}
+\date{}   
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+\noindent
+This report summarizes the results of a first-level general linear model (GLM) analysis performed in SPM12 on the MoAEpilot dataset (auditory stimulation paradigm). A one-sample t-test was computed for the contrast of interest, yielding the statistical map \texttt{spmT\_0001.nii}. At a voxel-wise threshold of $p < 0.001$ (uncorrected) with a minimum cluster size of 5 voxels, \textbf{38 clusters} were identified. The most prominent activation was observed in the bilateral superior temporal gyri, consistent with the auditory nature of the paradigm.
+\end{abstract}
+
+% ============================================================
+\section{Analysis Parameters}
+
+\begin{table}[h!]
+\centering
+\caption{Summary of the statistical analysis settings.}
+\label{tab:params}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Software & SPM12 (v7573) \\
+Statistical map & \texttt{spmT\_0001.nii} \\
+Statistic type & T \\
+Degrees of freedom (df) & 72 \\
+Voxel-wise threshold & $p < 0.001$ (uncorrected) \\
+Corresponding t-intensity & 3.2073 \\
+Minimum cluster size & 5 voxels \\
+Number of clusters found & 38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+\section{Overview of Results}
+
+A total of 38 suprathreshold clusters were detected. Table~\ref{tab:clusters} lists all clusters ranked by peak t-statistic. The largest and most significant cluster (Cluster~8, $k = 5127$ voxels, peak $t = 15.86$) was located in the right superior temporal gyrus, followed by a large left-hemispheric cluster (Cluster~10, $k = 3824$ voxels, peak $t = 15.59$) in the left superior temporal gyrus. These bilateral temporal activations are the expected functional signature of auditory stimulation.
+
+% ============================================================
+\section{Cluster Summary Table}
+
+\begin{longtable}{@{}r r r r l@{}}
+\caption{All 38 suprathreshold clusters ($p < 0.001$, $k \geq 5$). Coordinates are in MNI space.}\label{tab:clusters}\\
+\toprule
+\textbf{\#} & \textbf{Voxels} & \textbf{Peak $t$} & \textbf{MNI $(x, y, z)$} & \textbf{Region (peak)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \textbf{Voxels} & \textbf{Peak $t$} & \textbf{MNI $(x, y, z)$} & \textbf{Region (peak)} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+1  & 95   & 5.0026  & $(34, 56, -54)$    & Undefined \\
+2  & 43   & 4.5503  & $(-34, 56, -54)$   & Undefined \\
+3  & 8    & 3.3386  & $(-26, 60, -46)$   & Undefined \\
+4  & 21   & 3.8211  & $(-38, -76, -30)$  & L Cerebellum, Declive / Crus1 \\
+5  & 249  & 6.4762  & $(-30, -32, -18)$  & L Parahippocampal Gyrus / Fusiform \\
+6  & 12   & 3.7042  & $(-40, -42, -24)$  & L Fusiform Gyrus (BA37) \\
+7  & 247  & 7.0690  & $(34, -28, -14)$   & R Parahippocampal Gyrus / Hippocampus \\
+8  & 5127 & 15.8555 & $(62, -12, -4)$    & R Superior Temporal Gyrus \\
+9  & 21   & 3.9161  & $(-8, -28, -16)$   & L Midbrain \\
+10 & 3824 & 15.5886 & $(-46, -34, 12)$   & L Superior Temporal Gyrus \\
+11 & 16   & 3.5321  & $(22, -90, 4)$     & R Cuneus / Occipital \\
+12 & 5    & 3.2625  & $(46, 56, 6)$      & R Middle Frontal Gyrus (BA10) \\
+13 & 123  & 4.1976  & $(-48, 44, 12)$    & L Inferior Frontal Gyrus (tri) \\
+14 & 5    & 3.3019  & $(40, -46, 10)$    & R Superior Temporal Gyrus (WM) \\
+15 & 5    & 3.3343  & $(38, 42, 10)$     & R Sub-Gyral / Frontal (WM) \\
+16 & 436  & 4.8981  & $(48, 18, 24)$     & R Inferior Frontal Gyrus (tri) \\
+17 & 25   & 3.8534  & $(-54, 2, 20)$     & L Inferior Frontal Gyrus (BA44) \\
+18 & 120  & 4.3546  & $(-42, 22, 28)$    & L Inferior Frontal Gyrus (tri, WM) \\
+19 & 10   & 3.5255  & $(28, 26, 18)$     & R Sub-Gyral / Frontal (WM) \\
+20 & 35   & 3.8139  & $(-40, -10, 26)$   & L Precentral Gyrus (WM) \\
+21 & 375  & 5.0000  & $(-56, -4, 46)$    & L Precentral Gyrus (BA6) \\
+22 & 43   & 4.0116  & $(-20, -62, 36)$   & L Precuneus (WM) \\
+23 & 5    & 3.6104  & $(4, -94, 34)$     & Undefined \\
+24 & 34   & 4.0967  & $(-28, 46, 36)$    & L Superior Frontal Gyrus (WM) \\
+25 & 18   & 3.8410  & $(24, 42, 38)$     & R Superior Frontal Gyrus (BA9) \\
+26 & 293  & 5.2201  & $(12, 14, 48)$     & R SMA / Medial Frontal \\
+27 & 21   & 3.8713  & $(-30, 4, 44)$     & L Sub-Gyral / Precentral (WM) \\
+28 & 11   & 3.6740  & $(34, 24, 42)$     & R Middle Frontal Gyrus (BA9) \\
+29 & 224  & 5.9292  & $(54, 0, 48)$      & R Precentral Gyrus (BA6) \\
+30 & 40   & 4.0517  & $(20, 0, 46)$      & R Sub-Gyral / Frontal (WM) \\
+31 & 6    & 3.4712  & $(32, 4, 46)$      & R Middle Frontal Gyrus (WM) \\
+32 & 38   & 4.0521  & $(8, -84, 50)$     & Undefined (Parietal/Sup) \\
+33 & 9    & 3.7101  & $(20, -84, 50)$    & Undefined (Parietal/Sup) \\
+34 & 15   & 3.6872  & $(8, -62, 52)$     & R Precuneus (BA7) \\
+35 & 21   & 3.6116  & $(-44, -48, 56)$   & L Inferior Parietal Lobule (BA40) \\
+36 & 6    & 3.4386  & $(-16, -80, 56)$   & Undefined \\
+37 & 26   & 4.1101  & $(-40, -62, 66)$   & Undefined \\
+38 & 5    & 3.4232  & $(-38, -8, 68)$    & L Precentral (WM) \\
+\end{longtable}
+
+% ============================================================
+\section{Discussion}
+
+\subsection{Primary Auditory Cortex Activation}
+The two largest clusters (Clusters~8 and~10) encompass the bilateral superior temporal gyri (STG), including Heschl's gyrus and the transverse temporal gyri (BA41/42). This pattern is the canonical BOLD response to auditory stimulation and confirms that the MoAEpilot paradigm successfully engaged the auditory system.
+
+\subsection{Subcortical and Medial Temporal Involvement}
+Clusters~5 and~7 showed strong bilateral involvement of the parahippocampal gyri, fusiform gyri, and hippocampi. These regions are frequently co-activated with auditory cortex during complex sound processing and may reflect memory- or scene-related processing of the auditory stimuli.
+
+\subsection{Frontal and Sensorimotor Recruitment}
+Several clusters (e.g., 13, 16, 17, 18, 21, 26, 29) were located in inferior frontal, precentral, and supplementary motor areas. These may reflect motor planning, verbal rehearsal, or attentional modulation during the auditory task.
+
+\subsection{Cerebellar and Occipital Contributions}
+Smaller clusters were observed in the cerebellum (Cluster~4, 6) and occipital cortex (Cluster~11), consistent with cross-modal and cerebellar contributions to auditory processing.
+
+\subsection{Limitations}
+\begin{itemize}[leftmargin=1.2em]
+    \item The threshold used ($p < 0.001$, uncorrected, $k \geq 5$) is liberal and does not control family-wise error. Cluster-level FWE correction is recommended for definitive inference.
+    \item Several clusters (1--3, 23, 32, 33, 36, 37) returned ``undefined'' anatomical labels, likely reflecting white-matter or boundary voxels.
+    \item The MoAEpilot dataset is a single-subject pilot; group-level inference is not possible from this analysis alone.
+\end{itemize}
+
+% ============================================================
+\section{Reproducibility}
+
+\begin{itemize}[leftmargin=1.2em]
+    \item \textbf{Software:} SPM12 (v7573), MATLAB.
+    \item \textbf{Input:} \texttt{spmT\_0001.nii} (first-level contrast).
+    \item \textbf{Threshold:} $p < 0.001$ uncorrected; $k \geq 5$.
+    \item \textbf{Coordinate space:} MNI.
+    \item \textbf{Visualization:} xjView.
+\end{itemize}
+
+\noindent
+The analysis script and configuration files are available in this repository. To regenerate the report, run:
+
+\begin{verbatim}
+pdflatex report.tex
+\end{verbatim}
+
+% ============================================================
+\section*{Acknowledgments}
+The MoAEpilot dataset is distributed with SPM12 for teaching and benchmarking purposes.
+
+\end{document}
